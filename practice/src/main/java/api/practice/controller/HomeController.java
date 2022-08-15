@@ -1,23 +1,40 @@
 package api.practice.controller;
 
 import api.practice.order.Order;
+import api.practice.order.OrderRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
-@RestController
+import java.util.List;
+
+@Controller
+@RequiredArgsConstructor
 public class HomeController {
 
-    @ResponseBody
-    @RequestMapping("/")
-    public Order test() {
+    private final OrderRepository orderRepository;
+
+    @GetMapping("/")
+    public String home() {
+        return "home";
+    }
+
+    @GetMapping("/order/join")
+    public String home2() {
+        return "getOrder";
+    }
+
+    @PostMapping("/order/join")
+    public String home2(OrderForm form) {
         Order order = new Order();
 
-        order.setPName("셔츠");
-        order.setMember("임");
-        order.setPNumber(10);
+        order.setMember(form.getMember());
+        order.setPName(form.getPName());
+        order.setPNumber(form.getPNumber());
 
-        return order;
+        orderRepository.join(order);
+        return "home";
     }
+
 }
