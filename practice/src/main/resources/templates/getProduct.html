@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<http xmlns:th="http://www.thymeleaf.org">
+    <body>
+    <div>
+        <form action="/product/join" method="post">
+            <div>
+                <label for="name">상품이름</label>
+                <input type="text" id="name" name="name" placeholder="상품이름">
+            </div>
+            <div>
+                <label for="price">상품가격</label>
+                <input type="text" id="price" name="price" placeholder="상품가격">
+            </div>
+            <div>
+                <label for="stock">상품재고</label>
+                <input type="text" id="stock" name="stock" placeholder="상품재고">
+            </div>
+            <button type="submit">등록</button>
+        </form>
+    </div>
+    </body>
+</http>
