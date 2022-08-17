@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @Controller
 @RequiredArgsConstructor
@@ -20,8 +21,8 @@ public class HomeController {
         return "home";
     }
 
-    @GetMapping("/order/join")
-    public String home2() {
+    @GetMapping("/order/{id}/join")
+    public String home2(@PathVariable("id") UUID id) {
         return "getOrder";
     }
 

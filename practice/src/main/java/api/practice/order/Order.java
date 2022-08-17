@@ -1,5 +1,6 @@
 package api.practice.order;
 
+import api.practice.product.Product;
 import lombok.Generated;
 import lombok.Getter;
 import lombok.Setter;
@@ -22,9 +23,14 @@ public class Order {
     @Column(name="order_member")
     private String member;
 
-    @Column(name="order_product")
-    private String pName;
+    @OneToMany(mappedBy = "order", cascade=CascadeType.ALL)
+    @JoinColumn(name="products")
+    private Product product;
 
     @Column(name="order_number")
     private int pNumber;
+
+    public int total() {
+        return (product.getPrice())*pNumber;
+    }
 }
