@@ -11,7 +11,7 @@ import java.util.UUID;
 @Setter
 public class OrderForm {
 
-    private UUID id;
+    private String id;
 
     private Product product;
 

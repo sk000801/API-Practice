@@ -18,7 +18,7 @@ public class ProductOrder {
     @GeneratedValue(generator="uuid2")
     @GenericGenerator(name="uuid2", strategy = "uuid2")
     @Column(columnDefinition = "BINARY(16)")
-    private UUID id;
+    private String id = UUID.randomUUID().toString();
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="order_id")
@@ -28,7 +28,7 @@ public class ProductOrder {
     @JoinColumn(name="product_id")
     private Product product;
 
-    private int pNumber;
+    private int pNumber; //주문수량
 
     public static ProductOrder create(int count, Product product) {
         ProductOrder productOrder = new ProductOrder();

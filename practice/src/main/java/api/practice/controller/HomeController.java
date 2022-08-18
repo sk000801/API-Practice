@@ -2,6 +2,7 @@ package api.practice.controller;
 
 import api.practice.order.Order;
 import api.practice.order.OrderRepository;
+import api.practice.order.ProductOrder;
 import api.practice.product.Product;
 import api.practice.product.ProductRepository;
 import lombok.RequiredArgsConstructor;
@@ -29,15 +30,14 @@ public class HomeController {
         return "getOrder";
     }
 
-//    @PostMapping("/order/{id}/join")
-//    public String home2(OrderForm form) {
-//        Order order = new Order();
-//
-//        order.setMember(form.getMember());
-//        order.get
-//
-//        orderRepository.join(order);
-//        return "home";
-//    }
+    @PostMapping("/order/{id}/join")
+    public String home2(OrderForm form, @PathVariable("id") String id) {
+
+        ProductOrder productOrder = ProductOrder.create(form.getPNumber(), productRepository.findId(id));
+        Order order = Order.create(form.getMember(), productOrder);
+
+        orderRepository.join(order);
+        return "redirect:/";
+    }
 
 }
