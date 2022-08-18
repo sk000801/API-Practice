@@ -13,8 +13,8 @@
 </div>
 <script>
     let order = document.getElementsByClassName('order')[0]
-    order.addEventListener('click', (UUID id) => {
-        id = ${'product.id'}
+    order.addEventListener('click', (id) => {
+        id = "${product.id}";
         window.location.href='/order/{id}/join'});
 </script>
 </body>

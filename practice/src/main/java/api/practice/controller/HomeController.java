@@ -25,7 +25,7 @@ public class HomeController {
     }
 
     @GetMapping("/order/{id}/join")
-    public String home2(@PathVariable("id") UUID id) {
+    public String home2(@PathVariable("id") String id) {
         return "getOrder";
     }
 
@@ -34,7 +34,7 @@ public class HomeController {
 //        Order order = new Order();
 //
 //        order.setMember(form.getMember());
-//        order.setPNumber(form.getPNumber());
+//        order.get
 //
 //        orderRepository.join(order);
 //        return "home";
