@@ -2,6 +2,8 @@ package api.practice.controller;
 
 import api.practice.order.Order;
 import api.practice.order.OrderRepository;
+import api.practice.product.Product;
+import api.practice.product.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +17,7 @@ import java.util.UUID;
 public class HomeController {
 
     private final OrderRepository orderRepository;
+    private final ProductRepository productRepository;
 
     @GetMapping("/")
     public String home() {
@@ -26,16 +29,15 @@ public class HomeController {
         return "getOrder";
     }
 
-    @PostMapping("/order/join")
-    public String home2(OrderForm form) {
-        Order order = new Order();
-
-        order.setMember(form.getMember());
-        order.setPName(form.getPName());
-        order.setPNumber(form.getPNumber());
-
-        orderRepository.join(order);
-        return "home";
-    }
+//    @PostMapping("/order/{id}/join")
+//    public String home2(OrderForm form) {
+//        Order order = new Order();
+//
+//        order.setMember(form.getMember());
+//        order.setPNumber(form.getPNumber());
+//
+//        orderRepository.join(order);
+//        return "home";
+//    }
 
 }

@@ -7,6 +7,8 @@ import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Getter
@@ -23,14 +25,15 @@ public class Order {
     @Column(name="order_member")
     private String member;
 
-    @OneToMany(mappedBy = "order", cascade=CascadeType.ALL)
-    @JoinColumn(name="products")
-    private Product product;
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    private List<ProductOrder> lists = new ArrayList<>();
 
-    @Column(name="order_number")
-    private int pNumber;
 
     public int total() {
-        return (product.getPrice())*pNumber;
+        int total = 0;
+        for(ProductOrder productOrder : lists) {
+            total += productOrder.total();
+        }
+        return total;
     }
 }

@@ -1,6 +1,7 @@
 package api.practice.controller;
 
 
+import api.practice.product.Product;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,7 +13,7 @@ public class OrderForm {
 
     private UUID id;
 
-    private String pName;
+    private Product product;
 
     private int pNumber;
 
