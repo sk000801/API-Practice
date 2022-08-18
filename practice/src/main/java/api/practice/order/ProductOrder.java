@@ -18,7 +18,7 @@ public class ProductOrder {
     @GeneratedValue(generator="uuid2")
     @GenericGenerator(name="uuid2", strategy = "uuid2")
     @Column(columnDefinition = "BINARY(16)")
-    private String id = UUID.randomUUID().toString();
+    private UUID id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="order_id")
@@ -41,5 +41,9 @@ public class ProductOrder {
 
     public int total() {
         return product.getPrice()*getPNumber();
+    }
+
+    public String toString(UUID id) {
+        return id.toString();
     }
 }

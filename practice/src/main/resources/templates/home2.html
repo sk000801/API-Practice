@@ -14,7 +14,8 @@
 <script>
     let order = document.getElementsByClassName('order')[0]
     order.addEventListener('click', () => {
-      window.location.href=`/order/${product.id}/join`
+      let id = `${product.id}`.toString();
+      window.location.href=`/order/${id}/join`
     })
 </script>
 </body>

@@ -15,12 +15,10 @@ import java.util.UUID;
 public class Product {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="product_id")
-//    @GeneratedValue(generator="uuid2")
-//    @GenericGenerator(name="uuid2", strategy = "uuid2")
-//    @Column(columnDefinition = "BINARY(16)")
-    private String id = UUID.randomUUID().toString();
+    @GeneratedValue(generator="uuid2")
+    @GenericGenerator(name="uuid2", strategy = "uuid2")
+    @Column(columnDefinition = "BINARY(16)")
+    private UUID id;
 
     @Column(name="product_name")
     private String name;
@@ -31,4 +29,7 @@ public class Product {
     @Column(name="product_stock")
     private int stock;
 
+    public String toString(UUID id) {
+        return id.toString();
+    }
 }
