@@ -19,7 +19,7 @@ public class ProductRepository {
     }
 
     public List<Product> list() {
-        return em.createQuery("select p from Product p as p")
+        return em.createQuery("select p from Product as p")
                 .getResultList();
     }
 }
