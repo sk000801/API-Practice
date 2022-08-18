@@ -5,15 +5,7 @@
     <a href="/product/join">상품 등록</a>
     <a href="/product/list">상품 목록</a>
     <a href="/order/list">주문 목록</a>
+    <a href="/product/order">상품 주문</a>
 
-    <div class="product_box">
-        <!-- 여기다가 상품 목록을 띄우고 id를 적어놓고 주문을 하면 되지 않을까-->
-        <button type="submit" class="order">주문</button>
-    </div>
-<script>
-    let order = document.getElementsByClassName('order')[0]
-    order.addEventListener('click', (UUID id) => {
-        window.location.href='/order/{id}/join'});
-</script>
 </body>
 </html>

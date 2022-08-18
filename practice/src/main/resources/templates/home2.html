@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<h1>상품을 주문할거라면</h1>
+<div class="product_box">
+  <div th:each="product : ${products}">
+    <form action="/order/{id}/join" method="get">
+      <div th:text = "${product.name}" />
+      <button type="submit" class="order">주문</button>
+    </form>
+  </div>
+  <!-- 여기다가 상품 목록을 띄우고 id를 적어놓고 주문을 하면 되지 않을까-->
+</div>
+<script>
+    let order = document.getElementsByClassName('order')[0]
+    order.addEventListener('click', (UUID id) => {
+        id = ${'product.id'}
+        window.location.href='/order/{id}/join'});
+</script>
+</body>
+</html>
