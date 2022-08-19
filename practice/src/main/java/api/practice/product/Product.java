@@ -2,6 +2,7 @@ package api.practice.product;
 
 import lombok.Generated;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -12,13 +13,20 @@ import java.util.UUID;
 @Setter
 @Entity
 @Table(name="products")
+@NoArgsConstructor
 public class Product {
 
+//    @Id
+//    @GeneratedValue(generator="uuid2")
+//    @GenericGenerator(name="uuid2", strategy = "uuid2")
+//    @Column(columnDefinition = "BINARY(16)")
+
+    private UUID uuid = UUID.randomUUID();
+
     @Id
-    @GeneratedValue(generator="uuid2")
-    @GenericGenerator(name="uuid2", strategy = "uuid2")
-    @Column(columnDefinition = "BINARY(16)")
-    private UUID id;
+    //@GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="product_id")
+    private String id = uuid.toString();
 
     @Column(name="product_name")
     private String name;

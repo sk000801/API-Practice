@@ -2,8 +2,8 @@ package api.practice.order;
 
 import api.practice.product.Product;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.UUID;
@@ -12,13 +12,19 @@ import java.util.UUID;
 @Setter
 @Entity
 @Table(name="order_product")
+@NoArgsConstructor
 public class ProductOrder {
 
+//    @Id
+//    @GeneratedValue(generator="uuid2")
+//    @GenericGenerator(name="uuid2", strategy = "uuid2")
+//    @Column(columnDefinition = "BINARY(16)")
+    private UUID uuid = UUID.randomUUID();
+
     @Id
-    @GeneratedValue(generator="uuid2")
-    @GenericGenerator(name="uuid2", strategy = "uuid2")
-    @Column(columnDefinition = "BINARY(16)")
-    private UUID id;
+    //@GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="order_product_id")
+    private String id = uuid.toString();
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="order_id")
