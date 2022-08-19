@@ -28,7 +28,7 @@ public class ProductOrder {
     @JoinColumn(name="product_id")
     private Product product;
 
-    private int pNumber;
+    private int pNumber; //주문수량
 
     public static ProductOrder create(int count, Product product) {
         ProductOrder productOrder = new ProductOrder();
@@ -41,5 +41,9 @@ public class ProductOrder {
 
     public int total() {
         return product.getPrice()*getPNumber();
+    }
+
+    public String toString() {
+        return id.toString();
     }
 }

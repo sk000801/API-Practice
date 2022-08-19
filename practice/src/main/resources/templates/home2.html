@@ -13,9 +13,10 @@
 </div>
 <script>
     let order = document.getElementsByClassName('order')[0]
-    order.addEventListener('click', (id) => {
-        id = "${product.id}";
-        window.location.href='/order/{id}/join'});
+    order.addEventListener('click', () => {
+      let id = `${product.id}`.toString();
+      window.location.href=`/order/${id}/join`
+    })
 </script>
 </body>
 </html>

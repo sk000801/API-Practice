@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import java.util.List;
+import java.util.UUID;
 
 @Repository
 @RequiredArgsConstructor
@@ -18,8 +19,13 @@ public class ProductRepository {
         em.persist(product);
     }
 
+    public Product findId(UUID id) {
+        return em.find(Product.class, id);
+    }
+
     public List<Product> list() {
         return em.createQuery("select p from Product as p")
                 .getResultList();
     }
+
 }

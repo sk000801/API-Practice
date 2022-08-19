@@ -9,7 +9,7 @@ import java.util.UUID;
 @Setter
 public class ProductForm {
 
-    private UUID id;
+    private String id;
 
     private String name;
 

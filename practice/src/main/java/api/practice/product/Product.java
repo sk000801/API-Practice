@@ -1,5 +1,6 @@
 package api.practice.product;
 
+import lombok.Generated;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
@@ -27,5 +28,9 @@ public class Product {
 
     @Column(name="product_stock")
     private int stock;
+
+    public String toString() {
+        return id.toString();
+    }
 
 }
