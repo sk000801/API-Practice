@@ -1,6 +1,7 @@
 package api.practice.order;
 
 import api.practice.product.Product;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Generated;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -45,6 +46,7 @@ public class Order {
     }
 
     public static Order create(String member, ProductOrder... lists) {
+        //여기에 뭔가 list에 대한 추가가 들어가야 할 거 같음...
         Order order = new Order();
         order.setMember(member);
         for(ProductOrder productOrder : lists) {

@@ -21,7 +21,6 @@ public class OrderController {
     public List<Order> test() {
 
         List<Order> lists = orderRepository.list();
-
         return lists;
     }
 }
