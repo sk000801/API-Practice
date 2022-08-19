@@ -43,7 +43,7 @@ public class ProductOrder {
         return product.getPrice()*getPNumber();
     }
 
-    public String toString(UUID id) {
+    public String toString() {
         return id.toString();
     }
 }

@@ -53,7 +53,7 @@ public class Order {
         return total;
     }
 
-    public String toString(UUID id) {
+    public String toString() {
         return id.toString();
     }
 }

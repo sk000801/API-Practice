@@ -31,8 +31,8 @@ public class HomeController {
     }
 
     @PostMapping("/order/{id}/join")
-    public String home2(OrderForm form, @PathVariable("id") String id) {
-
+    public String home2(OrderForm form, @PathVariable("id") UUID id) {
+        //여기가 문제임 받아오는 id는 분명 UUID일 것인데 주소는 string만 인식하는 거 같음...
         ProductOrder productOrder = ProductOrder.create(form.getPNumber(), productRepository.findId(id));
         Order order = Order.create(form.getMember(), productOrder);
 

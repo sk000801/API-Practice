@@ -19,7 +19,7 @@ public class ProductRepository {
         em.persist(product);
     }
 
-    public Product findId(String id) {
+    public Product findId(UUID id) {
         return em.find(Product.class, id);
     }
 

@@ -29,7 +29,8 @@ public class Product {
     @Column(name="product_stock")
     private int stock;
 
-    public String toString(UUID id) {
+    public String toString() {
         return id.toString();
     }
+
 }
