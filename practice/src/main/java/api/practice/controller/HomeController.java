@@ -3,6 +3,7 @@ package api.practice.controller;
 import api.practice.order.Order;
 import api.practice.order.OrderRepository;
 import api.practice.order.ProductOrder;
+import api.practice.order.ProductOrderRepository;
 import api.practice.product.Product;
 import api.practice.product.ProductRepository;
 import lombok.RequiredArgsConstructor;
@@ -19,6 +20,7 @@ public class HomeController {
 
     private final OrderRepository orderRepository;
     private final ProductRepository productRepository;
+    private final ProductOrderRepository productOrderRepository;
 
     @GetMapping("/")
     public String home() {
@@ -34,8 +36,11 @@ public class HomeController {
     public String home2(OrderForm form, @PathVariable("id") String id) {
 
         ProductOrder productOrder = ProductOrder.create(form.getPNumber(), productRepository.findId(id));
-        Order order = Order.create(form.getMember(), productOrder);
+        //productOrder.setProduct(productRepository.findId(id));
+        //사실 잘 이해가 안간다.. 굳이 설정을 또??
+        productOrderRepository.join(productOrder);
 
+        Order order = Order.create(form.getMember(), productOrder);
         orderRepository.join(order);
         return "redirect:/";
     }

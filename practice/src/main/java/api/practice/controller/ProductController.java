@@ -23,6 +23,11 @@ public class ProductController {
         return "home2";
     }
 
+    @PostMapping("/product/order")
+    public String order2() {
+
+    }
+
     @GetMapping("/product/join")
     public String join() {
         return "getProduct";

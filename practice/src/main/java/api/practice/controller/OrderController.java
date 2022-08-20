@@ -21,6 +21,10 @@ public class OrderController {
     public List<Order> test() {
 
         List<Order> lists = orderRepository.list();
+
+        //list 뽑아낼 때 아마도 productorder에 order가 포함돼 있으니
+        //productOrder를 사용해 createQuery를 하는게 좋지 않나
+
         return lists;
     }
 }

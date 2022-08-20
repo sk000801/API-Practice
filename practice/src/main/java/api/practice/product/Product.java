@@ -37,6 +37,9 @@ public class Product {
     @Column(name="product_stock")
     private int stock;
 
+    public int remove(int count) {
+        return stock -= count;
+    }
     public String toString() {
         return id.toString();
     }

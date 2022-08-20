@@ -1,6 +1,7 @@
 package api.practice.order;
 
 import api.practice.product.Product;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
