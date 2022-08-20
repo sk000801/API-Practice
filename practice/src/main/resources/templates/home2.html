@@ -5,7 +5,7 @@
 <div class="product_box">
   <div th:each="product : ${products}">
     <form action="/order/{id}/join" method="get">
-      <div th:text = "${product.name}" />
+      <div th:text = "${product.name}" ></div>
       <button type="submit" class="order">주문</button>
     </form>
   </div>
@@ -14,8 +14,7 @@
 <script>
     let order = document.getElementsByClassName('order')[0]
     order.addEventListener('click', () => {
-      let id = `${product.id}`.toString();
-      window.location.href=`/order/${id}/join`
+      window.location.href=`/order/${product.id}/join`
     })
 </script>
 </body>
