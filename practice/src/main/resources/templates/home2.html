@@ -4,7 +4,8 @@
 <h1>상품을 주문할거라면</h1>
 <div class="product_box">
   <div th:each="product : ${products}">
-    <form action="/order/{id}/join" method="get">
+<!--    <form action="/order/{id}/join" method="get">-->
+    <form action="/product/order" method=""
       <div th:text = "${product.name}" ></div>
       <button type="submit" class="order">주문</button>
     </form>
