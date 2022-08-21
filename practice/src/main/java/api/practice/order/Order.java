@@ -38,7 +38,6 @@ public class Order {
     private String member;
 
     @OneToMany(mappedBy = "order")
-    @JsonIgnore
     private List<ProductOrder> lists = new ArrayList<ProductOrder>();
 
     //cascade = CascadeType.ALL

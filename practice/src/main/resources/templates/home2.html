@@ -5,18 +5,19 @@
 <div class="product_box">
   <div th:each="product : ${products}">
 <!--    <form action="/order/{id}/join" method="get">-->
-    <form action="/product/order" method=""
+    <form action="/product/order" method="post">
       <div th:text = "${product.name}" ></div>
+      <input type="hidden" name="id" th:value="${product.id}" />
       <button type="submit" class="order">주문</button>
     </form>
   </div>
   <!-- 여기다가 상품 목록을 띄우고 id를 적어놓고 주문을 하면 되지 않을까-->
 </div>
-<script>
-    let order = document.getElementsByClassName('order')[0]
-    order.addEventListener('click', () => {
-      window.location.href=`/order/${product.id}/join`
-    })
-</script>
+<!--<script>-->
+<!--    let order = document.getElementsByClassName('order')[0]-->
+<!--    order.addEventListener('click', () => {-->
+<!--      window.location.href=`/order/${product.id}/join`-->
+<!--    })-->
+<!--</script>-->
 </body>
 </html>

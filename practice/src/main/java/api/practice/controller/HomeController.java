@@ -36,7 +36,7 @@ public class HomeController {
     public String home2(OrderForm form, @PathVariable("id") String id) {
 
         ProductOrder productOrder = ProductOrder.create(form.getPNumber(), productRepository.findId(id));
-        //productOrder.setProduct(productRepository.findId(id));
+        productOrder.setProduct(productRepository.findId(id));
         //사실 잘 이해가 안간다.. 굳이 설정을 또??
         productOrderRepository.join(productOrder);
 

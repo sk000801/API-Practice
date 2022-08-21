@@ -24,8 +24,10 @@ public class ProductController {
     }
 
     @PostMapping("/product/order")
-    public String order2() {
-
+    public String order2(OPForm form) {
+        String id = form.getId();
+        System.out.println("id = " + id);
+        return "redirect:/order/"+id+"/join";
     }
 
     @GetMapping("/product/join")
