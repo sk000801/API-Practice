@@ -3,16 +3,10 @@ package api.practice.controller;
 import api.practice.order.Order;
 import api.practice.order.OrderRepository;
 import api.practice.order.ProductOrder;
-import api.practice.order.ProductOrderRepository;
-import api.practice.product.Product;
 import api.practice.product.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-import java.util.UUID;
 
 @Controller
 @RequiredArgsConstructor

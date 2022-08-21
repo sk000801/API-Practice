@@ -2,12 +2,10 @@ package api.practice.order;
 
 import api.practice.product.Product;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import lombok.Generated;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -21,7 +19,7 @@ import java.util.UUID;
 @Setter
 @Entity
 @Table(name="orders")
-@NoArgsConstructor
+@RequiredArgsConstructor
 public class Order {
 //    @Id
 //    @GeneratedValue(generator="uuid2")
@@ -38,12 +36,13 @@ public class Order {
     private String member;
 
     @OneToMany(mappedBy = "order")
-    private List<ProductOrder> lists = new ArrayList<ProductOrder>();
+    @JsonIgnore
+    private List<ProductOrder> polists = new ArrayList<>();
 
     //cascade = CascadeType.ALL
 
     public void addProductOrder(ProductOrder productOrder) {
-        lists.add(productOrder);
+        polists.add(productOrder);
         productOrder.setOrder(this);
     }
 
@@ -59,7 +58,7 @@ public class Order {
 
     public int total() {
         int total = 0;
-        for(ProductOrder productOrder : lists) {
+        for(ProductOrder productOrder : polists) {
             total += productOrder.total();
         }
         return total;
