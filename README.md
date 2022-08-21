@@ -1,5 +1,8 @@
-# 혼자서 야매로 해보는 API 연습....
+# [CUTIEPIE](https://github.com/Cutiepazzipozzi/JPA_practice_small) 쇼핑몰 클론코딩을 위해
+### 혼자서 야매로 해보는 API 연습....
 (이게 API일까..? 싶은 실습도 해본다....)
+
+<br>
 
 - JSON 형태로 반환하는 페이지 만들어보기
   <br>
@@ -14,4 +17,3 @@ product나 order 리스트들을 json 형태로 페이지에 띄워준다!
 
 <br>
 
-(https://github.com/Cutiepazzipozzi/JPA_practice_small)[CUTIEPIE]
