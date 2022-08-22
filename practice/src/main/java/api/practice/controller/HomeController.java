@@ -17,7 +17,7 @@ public class HomeController {
     private final ProductRepository productRepository;
 
     @GetMapping("/")
-    public String home(@CookieValue(name="mId", required = false) Long mId, Model model) {
+    public String home(@CookieValue(name="mId", required = false) String mId, Model model) {
         //이제 여기서 로그인과 비 로그인이 구분된 페이지가 있다면 구분해주겠지..?
 
         return "home";
