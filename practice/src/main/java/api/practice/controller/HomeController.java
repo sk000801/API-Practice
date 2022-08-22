@@ -6,6 +6,7 @@ import api.practice.order.ProductOrder;
 import api.practice.product.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
@@ -16,7 +17,9 @@ public class HomeController {
     private final ProductRepository productRepository;
 
     @GetMapping("/")
-    public String home() {
+    public String home(@CookieValue(name="mId", required = false) Long mId, Model model) {
+        //이제 여기서 로그인과 비 로그인이 구분된 페이지가 있다면 구분해주겠지..?
+
         return "home";
     }
 

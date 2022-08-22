@@ -40,10 +40,21 @@ public class LoginController {
             return "login/loginForm";
         }
 
-        //브라우저를 종료할 경우 로그아웃되도록 하는
         Cookie idCookie = new Cookie("mId", String.valueOf(logMember.getId()));
         response.addCookie(idCookie);
 
         return "redirect:/";
+     }
+
+    @PostMapping("/logout")
+    public String logout(HttpServletResponse response) {
+        expireCookie(response, "mId");
+        return "redirect:/";
+     }
+
+    private void expireCookie(HttpServletResponse response, String name) {
+        Cookie cookie = new Cookie(name, null);
+        cookie.setMaxAge(0);
+        response.addCookie(cookie);
      }
 }
